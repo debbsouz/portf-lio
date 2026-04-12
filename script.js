@@ -1,5 +1,12 @@
-const toggle = document.getElementById("themeToggle");
+const reveals = document.querySelectorAll(".reveal");
 
-toggle.onclick = () => {
-    document.body.classList.toggle("dark");
-};
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
