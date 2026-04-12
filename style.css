@@ -31,3 +31,13 @@ button {
     cursor: pointer;
 }
 
+body.dark {
+    background: #121212;
+    color: #eee;
+}
+
+body.dark .sun {
+    background: radial-gradient(circle, #ccc, #888);
+    box-shadow: 0 0 30px #aaa;
+}
+
