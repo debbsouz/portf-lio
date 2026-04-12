@@ -162,3 +162,27 @@ body.dark button {
 body.dark::before {
     background: radial-gradient(circle, rgba(160, 160, 255, 0.15), transparent 70%);
 }
+
+.stack-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stack-card {
+  padding: 20px 30px;
+  border-radius: 20px;
+  background: #ffffff;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.stack-card:hover {
+  transform: translateY(-6px);
+}
+
+body.dark .stack-card {
+  background: #1c1c24;
+}
