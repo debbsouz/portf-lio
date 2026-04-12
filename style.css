@@ -95,7 +95,7 @@ body.dark header {
     position: relative;
     overflow: hidden;
     text-align: center;
-    padding: 200px;
+    padding: 200px 20px 120px;
 }
 
 #hero h1 {
