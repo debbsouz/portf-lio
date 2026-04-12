@@ -186,3 +186,11 @@ body.dark::before {
 body.dark .stack-card {
   background: #1c1c24;
 }
+
+.stack-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body.dark .stack-card {
+  box-shadow: none;
+}
