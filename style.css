@@ -30,9 +30,24 @@ body.dark::before {
 
 /* HEADER */
 header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+
+    z-index: 100;
+}
+
+body.dark header {
+    background: rgba(15, 15, 20, 0.6);
 }
 
 /* HERO */
@@ -40,7 +55,7 @@ header {
     position: relative;
     overflow: hidden;
     text-align: center;
-    padding: 160px 20px;
+    padding: 200px;
 }
 
 #hero h1 {
