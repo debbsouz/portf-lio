@@ -45,9 +45,16 @@ header {
 }
 
 button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
 
 body.dark {
@@ -59,4 +66,10 @@ body.dark .sun {
   background: radial-gradient(circle, #e0e0e0, #9e9e9e);
   box-shadow: 0 0 40px #bbb;
 }
+
+body.dark button {
+    background: #2c2c54;
+    color: #fff;
+}
+
 
