@@ -4,7 +4,21 @@ body {
     color: #1a1a1a;
     background: #fafafa;
     min-height: 100vh;
+    cursor: none;
 }
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    background: rgba(0,0,0,0.7);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
+    z-index: 999;
+}
+
 
 /* luz suave (sol invisível) */
 body::before {
@@ -26,6 +40,10 @@ body.dark {
 
 body.dark::before {
     background: radial-gradient(circle, rgba(160, 160, 255, 0.15), transparent 70%);
+}
+
+body.dark .cursor {
+    background: rgba(255, 255, 255, 0.7);
 }
 
 /* HEADER */
