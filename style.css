@@ -104,6 +104,10 @@ body::before {
   }
 }
 
+section {
+  padding: 120px 20px;
+}
+
 .shape {
     position: absolute;
     top: 0;
