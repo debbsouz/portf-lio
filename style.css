@@ -33,6 +33,20 @@ body::before {
     z-index: -1;
 }
 
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+    );
+
+    pointer-events: none;
+}
+
 body.dark {
     background: #0f0f14;
     color: #eee;
@@ -44,6 +58,14 @@ body.dark::before {
 
 body.dark .cursor {
     background: rgba(255, 255, 255, 0.7);
+}
+
+body.dark::after {
+    background: radial-gradient(
+        circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.05),
+        transparent 40%
+    );
 }
 
 /* HEADER */
