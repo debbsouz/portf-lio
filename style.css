@@ -1,8 +1,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    background: linear-gradient(120deg, #f6d365, #fda085);
     color: #333;
+    min-height: 100vh;
+    
 }
 
 header {
@@ -32,7 +34,7 @@ button {
 }
 
 body.dark {
-    background: #121212;
+    background: linear-gradient(120deg, #1e1e2f, #3a3a5a);
     color: #eee;
 }
 
