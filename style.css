@@ -220,3 +220,26 @@ body {
 .hero-description {
     line-height: 1.6;
 }
+
+.orbit {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    animation: rotateOrbit 20s linear infinite;
+}
+
+.orbit .floating-card {
+    position: absolute;
+}
+
+.orbit .floating-card:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.orbit .floating-card:nth-child(2) { top: 25%; right: 0; }
+.orbit .floating-card:nth-child(3) { bottom: 25%; right: 0; }
+.orbit .floating-card:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.orbit .floating-card:nth-child(5) { bottom: 25%; left: 0; }
+.orbit .floating-card:nth-child(6) { top: 25%; left: 0; }
+
+@keyframes rotateOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
