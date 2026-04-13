@@ -5,31 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Débora | Developer</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
-  <nav class="nav">
-    <div class="logo">Débora.dev</div>
+  <nav class="nav-container">
+    <div class="logo">
+      <span class="logo-bracket">&lt;</span>Débora.dev<span class="logo-bracket">/&gt;</span>
+    </div>
 
     <div class="nav-links" id="navMenu">
-      <a href="#home">Início</a>
-      <a href="#about">Sobre</a>
-      <a href="#solutions">Soluções</a>
-      <a href="#projects">Projetos</a>
-      <a href="#contact">Contato</a>
+      <a href="#home" class="nav-link active">Início</a>
+      <a href="#about" class="nav-link">Sobre</a>
+      <a href="#solutions" class="nav-link">Soluções</a>
+      <a href="#projects" class="nav-link">Projetos</a>
+      <a href="#contact" class="nav-link">Contato</a>
     </div>
 
-    <div class="nav-actions">
-      <div id="menuToggle" class="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </nav>
 </header>
 
@@ -39,8 +40,8 @@
   <div class="mouse-glow"></div>
 
   <div class="hero-container">
-    
-    <div class="hero-content">
+    <!-- TEXTO -->
+    <div class="hero-content fade-in">
       <p class="hero-greeting">Hello, I'm</p>
 
       <h1 class="hero-title">
@@ -51,7 +52,8 @@
       <p class="hero-subtitle">Full-Stack Dev {student}</p>
 
       <p class="hero-description">
-        Focada em soluções inteligentes utilizando JavaScript e Inteligência Artificial.
+        Desenvolvendo soluções inteligentes com JavaScript e Inteligência Artificial,<br>
+        focadas em automação e eficiência real.
       </p>
 
       <div class="hero-buttons">
@@ -59,125 +61,124 @@
         <a href="#solutions" class="btn secondary">Ver soluções</a>
       </div>
 
+      <!-- TERMINAL -->
       <div class="terminal">
         <p><span class="prompt">> </span>start</p>
-        <p class="typing-line" id="typing"></p>
+        <p id="typing"></p>
       </div>
+
     </div>
 
-    <div class="hero-visual">
+    <!-- VISUAL -->
+    <div class="hero-visual fade-in">
+
       <div class="circle-glow"></div>
 
       <div class="orbit">
-        <div class="floating-card">Vue.js</div>
+        <div class="floating-card">JavaScript</div>
         <div class="floating-card">React</div>
         <div class="floating-card">Node</div>
         <div class="floating-card">Python</div>
         <div class="floating-card">IA</div>
         <div class="floating-card">API</div>
       </div>
+
     </div>
 
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- SOBRE -->
 <section id="about" class="section fade-in">
-  <div class="section-container">
-
-    <div class="section-header">
-      <h2>Sobre</h2>
-    </div>
-
-    <p style="max-width:600px;margin:auto;text-align:center;color:var(--text-secondary)">
-      Desenvolvedora em transição de carreira, focada em JavaScript e aplicações com Inteligência Artificial.
-      Crio soluções que automatizam tarefas e ajudam na tomada de decisão.
-    </p>
-
+  <div class="section-header">
+    <h2>Sobre</h2>
   </div>
+
+  <p class="section-text">
+    Desenvolvedora em transição de carreira, com foco em JavaScript e aplicações com Inteligência Artificial. 
+    Crio soluções que automatizam tarefas e geram valor real através de dados e automações inteligentes.
+  </p>
 </section>
 
-<!-- SOLUTIONS -->
+<!-- SOLUÇÕES -->
 <section id="solutions" class="section fade-in">
-  <div class="section-container">
 
-    <div class="section-header">
-      <h2>Soluções Inteligentes</h2>
-      <p>Projetos focados em automação, análise e eficiência</p>
+  <div class="section-header">
+    <h2>Soluções Inteligentes</h2>
+    <p>Projetos focados em automação, análise e eficiência</p>
+  </div>
+
+  <div class="solutions-grid">
+
+    <div class="solution-card">
+      <h3>Analisador de Dados</h3>
+      <p>Detecta padrões e gera insights automáticos para tomada de decisão.</p>
+      <span>JavaScript • IA • Dados</span>
     </div>
 
-    <div class="solutions-grid">
+    <div class="solution-card">
+      <h3>Automação de Leads</h3>
+      <p>Captura e organiza oportunidades automaticamente com base em critérios.</p>
+      <span>Node • API • Automação</span>
+    </div>
 
-      <div class="solution-card">
-        <h3>Analisador de Dados</h3>
-        <p>Detecta padrões e gera insights automáticos para tomada de decisão.</p>
-        <span>JavaScript • IA • Dados</span>
-      </div>
-
-      <div class="solution-card">
-        <h3>Automação de Leads</h3>
-        <p>Captura e organiza oportunidades automaticamente com base em critérios estratégicos.</p>
-        <span>Node • API • Automação</span>
-      </div>
-
-      <div class="solution-card">
-        <h3>Sistema Inteligente</h3>
-        <p>Aprende comportamento do usuário e entrega recomendações personalizadas.</p>
-        <span>Machine Learning • IA</span>
-      </div>
-
+    <div class="solution-card">
+      <h3>Sistema Inteligente</h3>
+      <p>Aprende comportamento do usuário e gera recomendações.</p>
+      <span>Machine Learning • IA</span>
     </div>
 
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- TECNOLOGIAS -->
+<section class="section fade-in">
+  <div class="section-header">
+    <h2>Tecnologias</h2>
+  </div>
+
+  <div class="tech-list">
+    JavaScript • React • Node • APIs • Python • Inteligência Artificial
+  </div>
+</section>
+
+<!-- PROJETOS -->
 <section id="projects" class="section fade-in">
-  <div class="section-container">
+  <div class="section-header">
+    <h2>Projetos</h2>
+    <p>Projetos focados em resolver problemas reais</p>
+  </div>
 
-    <div class="section-header">
-      <h2>Projetos</h2>
-      <p>Projetos focados em resolver problemas reais</p>
+  <div class="solutions-grid">
+    <div class="solution-card">
+      <h3>Analisador de Gastos</h3>
+      <p>Sistema que analisa padrões financeiros e sugere melhorias.</p>
+      <span>JavaScript • IA</span>
     </div>
 
-    <div class="solutions-grid">
-
-      <div class="solution-card">
-        <h3>Analisador de Gastos</h3>
-        <p>Sistema que analisa padrões financeiros e sugere melhorias automaticamente.</p>
-        <span>JavaScript • IA • Dados</span>
-      </div>
-
-      <div class="solution-card">
-        <h3>Gerador de Leads</h3>
-        <p>Ferramenta que coleta e organiza oportunidades de negócio automaticamente.</p>
-        <span>Node • API • Automação</span>
-      </div>
-
-      <div class="solution-card">
-        <h3>Recomendador Inteligente</h3>
-        <p>Algoritmo que aprende comportamento do usuário e sugere ações.</p>
-        <span>Machine Learning • IA</span>
-      </div>
-
+    <div class="solution-card">
+      <h3>Gerador de Leads</h3>
+      <p>Coleta e organiza oportunidades automaticamente.</p>
+      <span>Node • API</span>
     </div>
 
+    <div class="solution-card">
+      <h3>Recomendador</h3>
+      <p>Sugere ações com base no comportamento do usuário.</p>
+      <span>IA • Dados</span>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTATO -->
 <section id="contact" class="section fade-in">
-  <div class="section-container">
-
-    <div class="section-header">
-      <h2>Contato</h2>
-    </div>
-
-    <p style="text-align:center;color:var(--text-secondary)">
-      Vamos conversar? Me chama no LinkedIn ou envie um e-mail.
-    </p>
-
+  <div class="section-header">
+    <h2>Contato</h2>
   </div>
+
+  <p class="section-text">
+    Vamos conversar? Me chama no LinkedIn ou envie um e-mail.
+  </p>
 </section>
 
 <script src="script.js"></script>
