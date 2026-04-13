@@ -1,44 +1,91 @@
-// reveal scroll
-const reveals = document.querySelectorAll(".reveal");
+const cursor = document.querySelector('.cursor');
+const lightLayer = document.querySelector('.light-layer');
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let targetX = mouseX;
+let targetY = mouseY;
 
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
+// Cursor suave + luz
+document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
 
-    if (elementTop < windowHeight - 100) {
-      el.classList.add("active");
+    document.documentElement.style.setProperty('--x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--y', `${e.clientY}px`);
+});
+
+function animateCursor() {
+    mouseX = mouseX * 0.92 + targetX * 0.08;
+    mouseY = mouseY * 0.92 + targetY * 0.08;
+
+    cursor.style.left = `${mouseX}px`;
+    cursor.style.top = `${mouseY}px`;
+
+    requestAnimationFrame(animateCursor);
+}
+
+// Efeito magnético nos cards
+function magneticCards() {
+    const cards = document.querySelectorAll('.stack-card, .project-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const rotateX = (e.clientY - centerY) / 14;
+            const rotateY = (centerX - e.clientX) / 14;
+
+            card.style.transform = `
+                perspective(1000px) 
+                rotateX(${rotateX}deg) 
+                rotateY(${rotateY}deg) 
+                translateY(-8px)
+            `;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+}
+
+// Tema claro/escuro
+function initTheme() {
+    const toggle = document.getElementById('themeToggle');
+    
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark');
     }
-  });
-});
 
-// cursor
-const cursor = document.querySelector(".cursor");
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+}
 
-document.addEventListener("mousemove", e => {
-  cursor.style.top = e.clientY + "px";
-  cursor.style.left = e.clientX + "px";
+// Scroll Reveal
+function scrollReveal() {
+    const reveals = document.querySelectorAll('section, .project-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
 
-  // LIGHT EFFECT (faltava isso)
-  document.body.style.setProperty("--x", e.clientX + "px");
-  document.body.style.setProperty("--y", e.clientY + "px");
-});
+    reveals.forEach(el => observer.observe(el));
+}
 
-const cards = document.querySelectorAll(".stack-card");
-
-cards.forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const moveX = (x - rect.width / 2) / 15;
-    const moveY = (y - rect.height / 2) / 15;
-
-    card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "translate(0,0) scale(1)";
-  });
-});
+// Inicialização
+window.onload = () => {
+    animateCursor();
+    magneticCards();
+    initTheme();
+    scrollReveal();
+};
