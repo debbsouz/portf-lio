@@ -17,7 +17,9 @@
 
     <div class="nav-links" id="navMenu">
       <a href="#home">Início</a>
+      <a href="#about">Sobre</a>
       <a href="#solutions">Soluções</a>
+      <a href="#projects">Projetos</a>
       <a href="#contact">Contato</a>
     </div>
 
@@ -59,8 +61,7 @@
 
       <div class="terminal">
         <p><span class="prompt">> </span>start</p>
-        <p>Inicializando portfolio...</p>
-        <p class="typing-line"></p>
+        <p class="typing-line" id="typing"></p>
       </div>
     </div>
 
@@ -82,77 +83,104 @@
 
 <!-- ABOUT -->
 <section id="about" class="section fade-in">
-  <div class="section-header">
-    <h2>Sobre</h2>
-  </div>
+  <div class="section-container">
 
-  <p class="about-text">
-    Desenvolvedora em transição de carreira, focada em JavaScript e aplicações com Inteligência Artificial.
-    Crio soluções que automatizam tarefas e ajudam na tomada de decisão.
-  </p>
+    <div class="section-header">
+      <h2>Sobre</h2>
+    </div>
+
+    <p style="max-width:600px;margin:auto;text-align:center;color:var(--text-secondary)">
+      Desenvolvedora em transição de carreira, focada em JavaScript e aplicações com Inteligência Artificial.
+      Crio soluções que automatizam tarefas e ajudam na tomada de decisão.
+    </p>
+
+  </div>
 </section>
 
-<!-- SOLUÇÕES -->
+<!-- SOLUTIONS -->
 <section id="solutions" class="section fade-in">
-  <div class="section-header">
-    <h2>Soluções Inteligentes</h2>
-    <p>Projetos focados em automação, análise e eficiência</p>
-  </div>
+  <div class="section-container">
 
-  <div class="solutions-grid">
-
-    <div class="solution-card">
-      <h3>Analisador de Dados</h3>
-      <p>Detecta padrões e gera insights automáticos.</p>
-      <span>JavaScript • IA • Dados</span>
+    <div class="section-header">
+      <h2>Soluções Inteligentes</h2>
+      <p>Projetos focados em automação, análise e eficiência</p>
     </div>
 
-    <div class="solution-card">
-      <h3>Automação de Leads</h3>
-      <p>Captura e organiza oportunidades automaticamente.</p>
-      <span>Node • API • Automação</span>
-    </div>
+    <div class="solutions-grid">
 
-    <div class="solution-card">
-      <h3>Sistema Inteligente</h3>
-      <p>Aprende comportamento e recomenda ações.</p>
-      <span>Machine Learning • IA</span>
+      <div class="solution-card">
+        <h3>Analisador de Dados</h3>
+        <p>Detecta padrões e gera insights automáticos para tomada de decisão.</p>
+        <span>JavaScript • IA • Dados</span>
+      </div>
+
+      <div class="solution-card">
+        <h3>Automação de Leads</h3>
+        <p>Captura e organiza oportunidades automaticamente com base em critérios estratégicos.</p>
+        <span>Node • API • Automação</span>
+      </div>
+
+      <div class="solution-card">
+        <h3>Sistema Inteligente</h3>
+        <p>Aprende comportamento do usuário e entrega recomendações personalizadas.</p>
+        <span>Machine Learning • IA</span>
+      </div>
+
     </div>
 
   </div>
 </section>
 
-<!-- TECNOLOGIAS -->
-<section class="section fade-in">
-  <div class="section-header">
-    <h2>Tecnologias</h2>
-  </div>
-
-  <div class="tech-list">
-    JavaScript • React • Node • APIs • Python • Inteligência Artificial
-  </div>
-</section>
-
-<!-- PROJETOS -->
+<!-- PROJECTS -->
 <section id="projects" class="section fade-in">
-  <div class="section-header">
-    <h2>Projetos</h2>
-    <p>Projetos focados em resolver problemas reais</p>
-  </div>
+  <div class="section-container">
 
-  <div class="solutions-grid"></div>
+    <div class="section-header">
+      <h2>Projetos</h2>
+      <p>Projetos focados em resolver problemas reais</p>
+    </div>
+
+    <div class="solutions-grid">
+
+      <div class="solution-card">
+        <h3>Analisador de Gastos</h3>
+        <p>Sistema que analisa padrões financeiros e sugere melhorias automaticamente.</p>
+        <span>JavaScript • IA • Dados</span>
+      </div>
+
+      <div class="solution-card">
+        <h3>Gerador de Leads</h3>
+        <p>Ferramenta que coleta e organiza oportunidades de negócio automaticamente.</p>
+        <span>Node • API • Automação</span>
+      </div>
+
+      <div class="solution-card">
+        <h3>Recomendador Inteligente</h3>
+        <p>Algoritmo que aprende comportamento do usuário e sugere ações.</p>
+        <span>Machine Learning • IA</span>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
-<!-- CONTATO -->
+<!-- CONTACT -->
 <section id="contact" class="section fade-in">
-  <div class="section-header">
-    <h2>Contato</h2>
-  </div>
+  <div class="section-container">
 
-  <p class="contact-text">
-    Vamos conversar? Me chama no LinkedIn ou envie um e-mail.
-  </p>
+    <div class="section-header">
+      <h2>Contato</h2>
+    </div>
+
+    <p style="text-align:center;color:var(--text-secondary)">
+      Vamos conversar? Me chama no LinkedIn ou envie um e-mail.
+    </p>
+
+  </div>
 </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
