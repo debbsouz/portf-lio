@@ -3,11 +3,6 @@ const AppState = {
     menuOpen: false
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initMenu();
-    initSmoothScroll();
-});
 
 function initTheme() {
     const savedTheme = localStorage.getItem('theme');
