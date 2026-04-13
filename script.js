@@ -26,6 +26,19 @@ document.addEventListener('mousemove', (e) => {
     glow.style.top = e.clientY + 'px';
 });
 
+const text = "Inicializando portfólio...";
+let i = 0;
+
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").textContent += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+typeEffect();
+
 function typeEffect() {
     const el = document.querySelector('.hero-title');
     if (!el) return;
