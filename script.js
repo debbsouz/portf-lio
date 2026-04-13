@@ -24,6 +24,47 @@ function initTheme() {
     }
 }
 
+function typeEffect() {
+    const el = document.querySelector('.hero-title');
+    if (!el) return;
+
+    const text = el.innerHTML;
+    el.innerHTML = '';
+
+    let i = 0;
+
+    function typing() {
+        if (i < text.length) {
+            el.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, 40);
+        }
+    }
+
+    typing();
+}
+
+document.addEventListener('DOMContentLoaded', typeEffect);
+
+function createParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
+
+    const symbols = ['{', '}', '<', '>', '/', '=', '+'];
+    
+    for (let i = 0; i < 20; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = Math.random() * 100 + '%';
+        el.style.animationDuration = (5 + Math.random() * 10) + 's';
+        el.style.fontSize = (10 + Math.random() * 10) + 'px';
+        container.appendChild(el);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', createParticles);
+
 function toggleTheme() {
     const newTheme = AppState.theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
