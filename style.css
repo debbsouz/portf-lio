@@ -253,3 +253,20 @@ body {
     z-index: 1;
     transform: translate(-50%, -50%);
 }
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(192,132,252,0.15), transparent 70%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.solution-card:hover::before {
+    opacity: 1;
+}
