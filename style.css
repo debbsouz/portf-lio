@@ -265,3 +265,37 @@ body {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.terminal {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #0d0d15;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #a1a1aa;
+}
+
+.prompt {
+    color: var(--primary);
+}
+
+.typing-line::after {
+    content: '|';
+    animation: blink 1s infinite;
+}

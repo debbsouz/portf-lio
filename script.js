@@ -81,6 +81,47 @@ function setTheme(theme) {
     }
 }
 
+function highlightMenu() {
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const top = section.offsetTop - 100;
+            if (scrollY >= top) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', highlightMenu);
+
+function initScrollAnimation() {
+    const elements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', initScrollAnimation);
+
 function initMenu() {
     const menuBtn = document.getElementById('menuToggle');
     const nav = document.getElementById('navMenu');
@@ -96,6 +137,26 @@ function initMenu() {
         menuBtn.setAttribute('aria-expanded', AppState.menuOpen);
     });
 }
+
+function terminalTyping() {
+    const el = document.querySelector('.typing-line');
+    if (!el) return;
+
+    const text = 'Portfolio running successfully ✔';
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 30);
+        }
+    }
+
+    type();
+}
+
+document.addEventListener('DOMContentLoaded', terminalTyping);
 
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
