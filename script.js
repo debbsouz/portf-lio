@@ -19,6 +19,7 @@ function initTheme() {
 
     const btn = document.getElementById('themeToggle');
     if (btn) {
+        btn.setAttribute('aria-label', 'Toggle theme');
         btn.addEventListener('click', toggleTheme);
     }
 }
@@ -43,8 +44,10 @@ function initMenu() {
     menuBtn.addEventListener('click', () => {
         AppState.menuOpen = !AppState.menuOpen;
 
-        nav.classList.toggle('active');
-        menuBtn.classList.toggle('active');
+        nav.classList.toggle('active', AppState.menuOpen);
+        menuBtn.classList.toggle('active', AppState.menuOpen);
+
+        menuBtn.setAttribute('aria-expanded', AppState.menuOpen);
     });
 }
 
@@ -58,10 +61,19 @@ function initSmoothScroll() {
             const target = document.querySelector(link.getAttribute('href'));
 
             if (target) {
+                const header = document.querySelector('.main-header');
+                const offset = header ? header.offsetHeight : 70;
+
                 window.scrollTo({
-                    top: target.offsetTop - 70,
+                    top: target.offsetTop - offset,
                     behavior: 'smooth'
                 });
+
+                if (AppState.menuOpen) {
+                    document.getElementById('navMenu')?.classList.remove('active');
+                    document.getElementById('menuToggle')?.classList.remove('active');
+                    AppState.menuOpen = false;
+                }
             }
         });
     });
