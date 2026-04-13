@@ -2,8 +2,6 @@ const AppState = {
     menuOpen: false
 };
 
-// init
-
 document.addEventListener('DOMContentLoaded', () => {
     initMenu();
     initSmoothScroll();
@@ -14,35 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
     initTerminal();
 });
 
-// mouse glow
+// MOUSE GLOW
 
 function initMouseGlow() {
     const glow = document.querySelector('.mouse-glow');
     if (!glow) return;
 
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-function animateGlow() {
-    currentX += (mouseX - currentX) * 0.1;
-    currentY += (mouseY - currentY) * 0.1;
+    function animateGlow() {
+        currentX += (mouseX - currentX) * 0.1;
+        currentY += (mouseY - currentY) * 0.1;
 
-    glow.style.left = currentX + 'px';
-    glow.style.top = currentY + 'px';
+        glow.style.left = currentX + 'px';
+        glow.style.top = currentY + 'px';
 
-    requestAnimationFrame(animateGlow);
+        requestAnimationFrame(animateGlow);
+    }
+
+    animateGlow();
 }
 
-animateGlow();
-
-// terminal
+// TERMINAL
 
 function initTerminal() {
     const element = document.getElementById("typing");
@@ -76,7 +75,7 @@ function initTerminal() {
     type();
 }
 
-// particles
+// PARTICLES
 
 function createParticles() {
     const container = document.getElementById('particles');
@@ -95,7 +94,7 @@ function createParticles() {
     }
 }
 
-// menu
+// MENU
 
 function initMenu() {
     const menuBtn = document.getElementById('menuToggle');
@@ -112,7 +111,7 @@ function initMenu() {
     });
 }
 
-// scroll suave
+// SCROLL SUAVE
 
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -124,7 +123,7 @@ function initSmoothScroll() {
             const target = document.querySelector(link.getAttribute('href'));
             if (!target) return;
 
-            const header = document.querySelector('.main-header');
+            const header = document.querySelector('.header');
             const offset = header ? header.offsetHeight : 70;
 
             window.scrollTo({
@@ -141,7 +140,7 @@ function initSmoothScroll() {
     });
 }
 
-// menu ativo
+// MENU ATIVO
 
 function highlightMenu() {
     const sections = document.querySelectorAll('section');
@@ -151,7 +150,7 @@ function highlightMenu() {
         let current = '';
 
         sections.forEach(section => {
-            const top = section.offsetTop - 100;
+            const top = section.offsetTop - 120;
             if (scrollY >= top) {
                 current = section.getAttribute('id');
             }
@@ -166,7 +165,7 @@ function highlightMenu() {
     });
 }
 
-// animação do scroll
+// SCROLL ANIMATION
 
 function initScrollAnimation() {
     const elements = document.querySelectorAll('.fade-in');
@@ -180,5 +179,4 @@ function initScrollAnimation() {
     }, { threshold: 0.2 });
 
     elements.forEach(el => observer.observe(el));
-}
 }
