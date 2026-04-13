@@ -4,68 +4,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <meta name="description" content="Portfólio de Débora - Desenvolvedora Front-end focada em JavaScript e projetos reais" />
-
   <title>Débora | Front-end Developer</title>
-
-
   <script src="https://cdn.tailwindcss.com"></script>
-
-
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-
-
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-black text-white font-sans">
  
-  <header class="flex justify-between items-center p-6">
+<header class="header main-header">
+    <nav class="nav">
+        <div class="logo">Débora.dev</div>
 
+        <div class="nav-links" id="navMenu">
+            <a href="#home">Início</a>
+            <a href="#about">Sobre</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
+        </div>
 
-    <div class="text-xl font-bold">
-      &lt;Débora /&gt;
-    </div>
-  
-    <nav class="flex gap-6 text-sm">
-      <a href="#home">Início</a>
-      <a href="#about">Sobre</a>
-      <a href="#projects">Projetos</a>
-      <a href="#contact">Contato</a>
+        <div class="nav-actions">
+            <button id="themeToggle" class="theme-btn">🌙</button>
+
+            <div id="menuToggle" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
+</header>
 
-  </header>
+<section id="home" class="hero">
+    <div class="hero-container">
+        
+        <div class="hero-content">
+            <p class="hero-greeting">Hello, I'm</p>
 
-  <section id="home" class="flex flex-col justify-center items-center text-center h-screen">
+            <h1 class="hero-title">
+                <span class="code">const</span>
+                <span class="highlight">Dev</span>eloper<span class="semicolon">;</span>
+            </h1>
 
-    <p class="text-gray-400 mb-2">
-      Olá, eu sou
-    </p>
+            <p class="hero-subtitle">
+                Dev Web Full-Stack {student}
+            </p>
 
-    <h1 class="text-4xl font-bold mb-4 font-mono">
-      const debora = "Developer";
-    </h1>
+            <p class="hero-description">
+                Focada em soluções inteligentes utilizando JavaScript e Inteligência Artificial.
+            </p>
 
-    <p class="text-gray-400 max-w-md mb-6">
-      Dev Web Full-Stack {student}
-    </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn primary">Entre em Contato →</a>
+                <a href="#projects" class="btn secondary">Ver projetos &lt;/&gt;</a>
+            </div>
+        </div>
 
-    <p class="text-gray-400 max-w-md mb-6">
-        Focada em soluções inteligentes utilizando JavaScript e Inteligência Artificial.
-    </p>
+        <div class="hero-visual">
+            <div class="circle-glow"></div>
+        </div>
 
-    <div class="flex gap-4">
-      <a href="#projects" class="bg-purple-600 px-4 py-2 rounded">
-        Ver projetos
-      </a>
-
-      <a href="#contact" class="border border-purple-600 px-4 py-2 rounded">
-        Contato
-      </a>
     </div>
-
-  </section>
+</section>
 
 </body>
 </html>

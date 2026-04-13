@@ -33,6 +33,11 @@ function toggleTheme() {
 function setTheme(theme) {
     AppState.theme = theme;
     document.body.setAttribute('data-theme', theme);
+
+    const btn = document.getElementById('themeToggle');
+    if (btn) {
+        btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
 }
 
 function initMenu() {
