@@ -1,82 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfólio de Débora - Desenvolvedora Front-end focada em JavaScript e projetos reais" />
-  <title>Débora | Front-end Developer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Débora | Developer</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-black text-white font-sans">
- 
-<header class="header main-header">
-    <nav class="nav">
-        <div class="logo">Débora.dev</div>
+<body>
 
-        <div class="nav-links" id="navMenu">
-            <a href="#home">Início</a>
-            <a href="#about">Sobre</a>
-            <a href="#projects">Projetos</a>
-            <a href="#contact">Contato</a>
-        </div>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">Débora.dev</div>
 
-<div class="hero-content fade-in"></div>
+    <div class="nav-links" id="navMenu">
+      <a href="#home">Início</a>
+      <a href="#solutions">Soluções</a>
+      <a href="#contact">Contato</a>
+    </div>
 
-        <div class="nav-actions">
-            <button id="themeToggle" class="theme-btn">🌙</button>
-
-            <div id="menuToggle" class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        <div class="terminal">
-    <p><span class="prompt">> </span>start</p>
-    <p>Começando portfolio...</p>
-    <p class="typing-line"></p>
-</div>
-        </div>
-    </nav>
+    <div class="nav-actions">
+      <button id="themeToggle">🌙</button>
+      <div id="menuToggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 </header>
 
+<!-- HERO -->
 <section id="home" class="hero">
-    <div class="hero-container">
-        <div id="particles"></div>
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
+  <div id="particles"></div>
 
-            <h1 class="hero-title">
-                <span class="code">const</span>
-                <span class="highlight">Dev</span>eloper<span class="semicolon">;</span>
-            </h1>
+  <div class="hero-container">
+    
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
 
-            <p class="hero-subtitle">
-                Dev Web Full-Stack {student}
-            </p>
+      <h1 class="hero-title">
+        <span class="code">const</span>
+        <span class="highlight">Dev</span>eloper<span class="semicolon">;</span>
+      </h1>
 
-            <p class="hero-description">
-                Focada em soluções inteligentes utilizando JavaScript e Inteligência Artificial.
-            </p>
+      <p class="hero-subtitle">Full-Stack Dev {student}</p>
 
-            <div class="hero-buttons">
-                <a href="#contact" class="btn primary">Entre em Contato →</a>
-                <a href="#projects" class="btn secondary">Ver projetos &lt;/&gt;</a>
-            </div>
-        </div>
+      <p class="hero-description">
+        Focada em soluções inteligentes utilizando JavaScript e Inteligência Artificial.
+      </p>
 
-<div class="hero-visual">
-    <div class="circle-glow"></div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Contato →</a>
+        <a href="#solutions" class="btn secondary">Ver soluções</a>
+      </div>
 
-    <div class="floating-card card-1">JS<br><span>ES6+</span></div>
-    <div class="floating-card card-2">React<br><span>Hooks</span></div>
-    <div class="floating-card card-3">Node<br><span>API</span></div>
-</div>
-
+      <div class="terminal">
+        <p><span class="prompt">> </span>start</p>
+        <p>Inicializando portfolio...</p>
+        <p class="typing-line"></p>
+      </div>
     </div>
+
+    <div class="hero-visual">
+      <div class="circle-glow"></div>
+
+      <div class="floating-card card-1">JS<br><span>ES6+</span></div>
+      <div class="floating-card card-2">React<br><span>Hooks</span></div>
+      <div class="floating-card card-3">Node<br><span>API</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="section">
+  <div class="section-header">
+    <h2>Soluções Inteligentes</h2>
+    <p>Projetos focados em automação, análise e IA</p>
+  </div>
+
+  <div class="solutions-grid">
+
+    <div class="solution-card">
+      <h3>📊 Analisador de Gastos</h3>
+      <p>Identifica padrões e sugere melhorias financeiras.</p>
+      <span>JavaScript • IA</span>
+    </div>
+
+    <div class="solution-card">
+      <h3>🤖 Leads Inteligentes</h3>
+      <p>Coleta e organiza oportunidades automaticamente.</p>
+      <span>Node • API</span>
+    </div>
+
+    <div class="solution-card">
+      <h3>🧠 Recomendador</h3>
+      <p>Aprende comportamento e sugere ações.</p>
+      <span>Machine Learning</span>
+    </div>
+
+  </div>
 </section>
 
 </body>
