@@ -222,3 +222,46 @@ body {
         opacity: 0;
     }
 }
+
+.floating-card {
+    position: absolute;
+    padding: 0.8rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    animation: floatCard 6s infinite ease-in-out;
+}
+
+.floating-card span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.card-1 {
+    top: 20%;
+    left: -40px;
+    animation-delay: 0s;
+}
+
+.card-2 {
+    top: 10%;
+    right: -40px;
+    animation-delay: 1s;
+}
+
+.card-3 {
+    bottom: 10%;
+    right: 0;
+    animation-delay: 2s;
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
