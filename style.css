@@ -33,6 +33,14 @@ body {
     overflow: hidden;
 }
 
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(167,139,250,0.15), transparent 50%);
+    z-index: 0;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -97,6 +105,22 @@ body {
     background: var(--gradient-main);
     color: white;
     box-shadow: 0 10px 30px rgba(192, 132, 252, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn.primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.btn.primary:hover::after {
+    opacity: 1;
+    transform: translateX(100%);
 }
 
 .btn.secondary {
@@ -230,6 +254,21 @@ body {
 
 .orbit .floating-card {
     position: absolute;
+    transform-origin: center;
+}
+
+.orbit .floating-card span {
+    display: inline-block;
+    animation: counterRotate 20s linear infinite;
+}
+
+@keyframes counterRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.orbit .floating-card {
+    position: absolute;
 }
 
 .orbit .floating-card:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
@@ -274,3 +313,23 @@ body {
 .terminal {
     white-space: pre-line;
 }
+
+.solution-card {
+    position: relative;
+}
+
+.solution-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    background: linear-gradient(120deg, transparent, rgba(192,132,252,0.3), transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.solution-card:hover::after {
+    opacity: 1;
+}
+

@@ -20,11 +20,27 @@ function initMouseGlow() {
     const glow = document.querySelector('.mouse-glow');
     if (!glow) return;
 
-    document.addEventListener('mousemove', (e) => {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-    });
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateGlow() {
+    currentX += (mouseX - currentX) * 0.1;
+    currentY += (mouseY - currentY) * 0.1;
+
+    glow.style.left = currentX + 'px';
+    glow.style.top = currentY + 'px';
+
+    requestAnimationFrame(animateGlow);
 }
+
+animateGlow();
 
 // terminal
 
@@ -164,4 +180,5 @@ function initScrollAnimation() {
     }, { threshold: 0.2 });
 
     elements.forEach(el => observer.observe(el));
+}
 }
