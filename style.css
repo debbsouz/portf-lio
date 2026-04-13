@@ -270,3 +270,7 @@ body {
 .solution-card:hover::before {
     opacity: 1;
 }
+
+.terminal {
+    white-space: pre-line;
+}
