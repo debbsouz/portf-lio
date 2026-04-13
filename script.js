@@ -6,6 +6,7 @@ const AppState = {
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initMenu();
+    initSmoothScroll();
 });
 
 function initTheme() {
@@ -44,5 +45,24 @@ function initMenu() {
 
         nav.classList.toggle('active');
         menuBtn.classList.toggle('active');
+    });
+}
+
+function initSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const target = document.querySelector(link.getAttribute('href'));
+
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 }
