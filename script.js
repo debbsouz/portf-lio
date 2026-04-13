@@ -32,3 +32,17 @@ function setTheme(theme) {
     AppState.theme = theme;
     document.body.setAttribute('data-theme', theme);
 }
+
+function initMenu() {
+    const menuBtn = document.getElementById('menuToggle');
+    const nav = document.getElementById('navMenu');
+
+    if (!menuBtn || !nav) return;
+
+    menuBtn.addEventListener('click', () => {
+        AppState.menuOpen = !AppState.menuOpen;
+
+        nav.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+    });
+}
