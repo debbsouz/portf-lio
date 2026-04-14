@@ -11,29 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     initMouseGlow();
     initTerminal();
+    initContactForm();
 });
 
-// ==================== HEADER ====================
+
 function initHeader() {
     const header = document.querySelector('.header');
     if (!header) return;
 
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-
-        if (currentScroll > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        lastScroll = currentScroll;
+        header.classList.toggle('scrolled', window.scrollY > 50);
     });
 }
 
-// ==================== MENU MOBILE ====================
+
 function initMenu() {
     const menuBtn = document.getElementById('menuToggle');
     const nav = document.getElementById('navMenu');
@@ -45,43 +36,44 @@ function initMenu() {
 
         nav.classList.toggle('active', AppState.menuOpen);
         menuBtn.classList.toggle('active', AppState.menuOpen);
-        menuBtn.setAttribute('aria-expanded', AppState.menuOpen);
     });
 }
 
-// ==================== SCROLL SUAVE ====================
+
 function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href^="#"]');
 
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+        if (!link) return;
 
-            const target = document.querySelector(link.getAttribute('href'));
-            if (!target) return;
+        if (link.closest('form')) return;
 
-            const header = document.querySelector('.header');
-            const offset = header ? header.offsetHeight : 80;
+        const href = link.getAttribute('href');
 
-            window.scrollTo({
-                top: target.offsetTop - offset,
-                behavior: 'smooth'
-            });
+        if (!href || href === '#') return;
 
-            // Fecha menu mobile ao clicar em um link
-            if (AppState.menuOpen) {
-                const nav = document.getElementById('navMenu');
-                const menuBtn = document.getElementById('menuToggle');
-                
-                nav?.classList.remove('active');
-                menuBtn?.classList.remove('active');
-                AppState.menuOpen = false;
-            }
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const header = document.querySelector('.header');
+        const offset = header ? header.offsetHeight : 80;
+
+        window.scrollTo({
+            top: target.offsetTop - offset,
+            behavior: 'smooth'
         });
+
+        if (AppState.menuOpen) {
+            document.getElementById('navMenu')?.classList.remove('active');
+            document.getElementById('menuToggle')?.classList.remove('active');
+            AppState.menuOpen = false;
+        }
     });
 }
 
-// ==================== MENU ATIVO NO SCROLL ====================
+
 function highlightMenu() {
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('.nav-links a');
@@ -90,8 +82,8 @@ function highlightMenu() {
         let current = '';
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 150;
-            if (scrollY >= sectionTop) {
+            const top = section.offsetTop - 150;
+            if (scrollY >= top) {
                 current = section.getAttribute('id');
             }
         });
@@ -105,7 +97,7 @@ function highlightMenu() {
     });
 }
 
-// ==================== ANIMAÇÕES DE SCROLL ====================
+
 function initScrollAnimation() {
     const elements = document.querySelectorAll('.fade-in');
 
@@ -120,7 +112,26 @@ function initScrollAnimation() {
     elements.forEach(el => observer.observe(el));
 }
 
-// ==================== MOUSE GLOW ====================
+
+function createParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
+
+    const symbols = ['{', '}', '<', '>', '/', '=', '+'];
+
+    for (let i = 0; i < 20; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = Math.random() * 100 + '%';
+        el.style.animationDuration = (5 + Math.random() * 10) + 's';
+        el.style.fontSize = (10 + Math.random() * 10) + 'px';
+
+        container.appendChild(el);
+    }
+}
+
+
 function initMouseGlow() {
     const glow = document.querySelector('.mouse-glow');
     if (!glow) return;
@@ -135,20 +146,20 @@ function initMouseGlow() {
         mouseY = e.clientY;
     });
 
-    function animateGlow() {
+    function animate() {
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
 
         glow.style.left = currentX + 'px';
         glow.style.top = currentY + 'px';
 
-        requestAnimationFrame(animateGlow);
+        requestAnimationFrame(animate);
     }
 
-    animateGlow();
+    animate();
 }
 
-// ==================== TERMINAL TYPING ====================
+
 function initTerminal() {
     const element = document.getElementById("typing");
     if (!element) return;
@@ -181,20 +192,17 @@ function initTerminal() {
     type();
 }
 
-// ==================== PARTICLES ====================
-function createParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
 
-    const symbols = ['{', '}', '<', '>', '/', '=', '+'];
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
 
-    for (let i = 0; i < 20; i++) {
-        const el = document.createElement('div');
-        el.className = 'particle';
-        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        el.style.left = Math.random() * 100 + '%';
-        el.style.animationDuration = (5 + Math.random() * 10) + 's';
-        el.style.fontSize = (10 + Math.random() * 10) + 'px';
-        container.appendChild(el);
-    }
+    form.addEventListener('submit', () => {
+        const btn = document.getElementById('submitBtn');
+
+        if (btn) {
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
+        }
+    });
 }
