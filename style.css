@@ -717,70 +717,67 @@ body {
 }
 
 .solutions-section {
-  padding: 110px 2rem;
+    padding: 80px 2rem 100px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2.8rem;
 }
 
 .solutions-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .solution-card {
-  background: rgba(26, 26, 38, 0.7);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 1.8rem 1.6rem;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    background: rgba(26, 26, 38, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .solution-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--primary);
-  box-shadow: 0 20px 45px rgba(192, 132, 252, 0.15);
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 45px rgba(192, 132, 252, 0.15);
 }
 
 .card-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--primary);
-  margin-bottom: 1.2rem;
-  transition: transform 0.4s ease;
-}
-
-.solution-card:hover .card-icon {
-  transform: scale(1.12);
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
 }
 
 .solution-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.9rem;
-  color: var(--text-primary);
-  font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .solution-card p {
-  color: var(--text-secondary);
-  line-height: 1.65;
-  font-size: 0.98rem;
-  flex-grow: 1;
-  margin-bottom: 1.4rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    flex-grow: 1;
+    margin-bottom: 1.4rem;
 }
 
 .card-tech {
-  font-size: 0.8rem;
-  color: var(--primary);
-  letter-spacing: 0.6px;
-  font-weight: 500;
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(192, 132, 252, 0.12);
+    font-size: 0.85rem;
+    color: var(--primary);
+    letter-spacing: 0.6px;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(192, 132, 252, 0.12);
 }
 
 @media (max-width: 768px) {
